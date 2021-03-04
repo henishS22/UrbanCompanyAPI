@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./javascripts/login.js" defer></script>
+    <title>Urban Clap Clone</title>
+
+    <style>
+        body{
+    background-color: #e6fff4;
+    color: #164b35;
+    display: flex;
+    justify-content: center;
+}
+input{
+  padding: 10px;
+  margin: 5px;
+}
+.btn {
+    background: #34d9aa;
+    background-image: -webkit-linear-gradient(top, #34d9aa, #0b9e81);
+    background-image: -moz-linear-gradient(top, #34d9aa, #0b9e81);
+    background-image: -ms-linear-gradient(top, #34d9aa, #0b9e81);
+    background-image: -o-linear-gradient(top, #34d9aa, #0b9e81);
+    background-image: linear-gradient(to bottom, #34d9aa, #0b9e81);
+    -webkit-border-radius: 28;
+    -moz-border-radius: 28;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .btn:hover {
+    background: #3cb0fd;
+    background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+    background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+    text-decoration: none;
+}
+    </style>
+
+
+</head>
+<body>
+    <div class="outer">
+        <h2>Welcome to the Urban Clap Clone</h2>
+        <form id="form">
+            <input type="email" name="email" id="email" placeholder="Enter Email"> 
+            <br>
+            <input type="password" name="password" id="password" placeholder="Password"> 
+            <br>
+            <button id="btn" type="submit" value="Submit">Login</button><br>
+            <span id="emailErr" style="color:red"></span>
+        </form>
+    </div>
+    
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="../css/style.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./javascripts/userDash.js" defer></script>
+    <title>Urban Clap Clone</title>
+
+
+    <style>
+        body {
+            background-color: #e6fff4;
+            color: #164b35;
+            display: flex;
+            justify-content: center;
+        }
+
+        input {
+            padding: 10px;
+            margin: 5px;
+        }
+
+        .btn {
+            background: #34d9aa;
+            background-image: -webkit-linear-gradient(top, #34d9aa, #0b9e81);
+            background-image: -moz-linear-gradient(top, #34d9aa, #0b9e81);
+            background-image: -ms-linear-gradient(top, #34d9aa, #0b9e81);
+            background-image: -o-linear-gradient(top, #34d9aa, #0b9e81);
+            background-image: linear-gradient(to bottom, #34d9aa, #0b9e81);
+            -webkit-border-radius: 28;
+            -moz-border-radius: 28;
+            border-radius: 28px;
+            font-family: Arial;
+            color: #ffffff;
+            font-size: 20px;
+            padding: 10px 20px 10px 20px;
+            display: inline;
+            float: left;
+            text-decoration: none;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #3cb0fd;
+            background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+            background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+            background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+            background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+            background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <template id="temp">
+
+    </template>
+    <div class="container-fluid">
+        <div class="outer">
+            <h2 class="text-center" style="display:inline;">Welcome to Your profile</h2>
+            <div id="logout" style="display: inline;float: right;cursor: pointer;">Logout</div>
+            <br><hr>
+            <div class="row">
+                <div class="col-lg-3">
+                    <button class="btn" id="profile">Get Profile</button>
+                </div>
+                <div class="col-lg-3">
+                    <button class="btn" id="bookings">Display Bookings</button>
+                </div>
+                <div class="col-lg-3">
+                    <button class="btn ml-3" id="services">Get Services</button>
+                </div>
+                <div class="col-lg-3">
+                    <button class="btn" id="categories">Get Categories</button>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div>
+        <div id="results"style="display: inline;float:left; width:45%;margin-top:50px">
+
+        </div>
+        <div id="serv" style="display: inline; float: right; width:50%;margin-top:50px">
+
+        </div>
+    </div>
+        <div class="container-fluid">
+        
+    
+        <div class="modal fade" id="mymodal">
+            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Update Profile</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        Name <input type="text" id="name"><br>
+                        Address <input type="text" id="address">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" id="update"> Update</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"> Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal fade" id="bookModal">
+            <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Book</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" id="hi">
+                        <!-- <input type="text" id="vendor"> -->
+                        <select id="vendor" onchange="showOptions(this)">
+                            
+                        </select>
+                        <input type="number" id="qty">
+                        <input type="date" id="date">
+                        <input type="time" id="time">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" id="book"> Book</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal"> Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        </div>
+        <!-- </div> -->
+    </div>
+</body>
+
+</html>
