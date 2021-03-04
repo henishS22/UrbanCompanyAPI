@@ -13,7 +13,7 @@ btn.addEventListener('click', async () => {
     if (/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(user.value)) {
         // console.log(user.value)
         // console.log(pass.value)
-        const res = await axios.put("https://urban-clone.herokuapp.com/api/v1/user/login", {
+        const res = await axios.put("http://localhost:3000/api/v1/user/login", {
             email: user.value,
             password: pass.value
         })
