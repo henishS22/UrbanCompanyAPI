@@ -258,9 +258,11 @@ exports.showBookings = async (req, res, next) => {
         userRole = req.user.role;
         if (userRole !== 'admin') {
             const bookings = await Booking.find({ userID: req.user._id }).populate({
-                path: 'Users'
+                path: 'vendorID',
+                select: 'name'
             }).populate({
-                path: 'service'
+                path: 'serviceID',
+                select: 'name'
             });
             res.status(200).json({
                 total: bookings.length,

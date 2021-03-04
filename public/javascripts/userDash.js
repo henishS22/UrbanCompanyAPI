@@ -198,7 +198,7 @@ categories.addEventListener('click', async () => {
     
 </div>`;
             node.content.querySelector('#category').addEventListener('click', async () => {
-                
+
                 const res5 = await axios.get(`http://localhost:3000/api/v1/service/get-category-services?id=${el._id}`, {
 
                     headers: {
@@ -216,15 +216,15 @@ categories.addEventListener('click', async () => {
                     <p id="service"><span style="color: #; padding: 0px 10px 0 0;">Service: </span><span id="cat">${el1.name}</span></p>
                     </div>`
                 })
-                
-                
+
+
                 serv.append(node.content);
-                    
-                
-            console.log(res5);
+
+
+                console.log(res5);
+            })
+            results.append(node.content);
         })
-        results.append(node.content);
-    })
     }
 });
 
@@ -235,10 +235,11 @@ bookings.addEventListener('click', async () => {
             Authorization: localStorage.getItem('Authorization')
         }
     });
-    console.log(res);
+    console.log(res.data.data);
     if (res.data.data) {
         results.innerHTML = "";
         res.data.data.forEach(el => {
+            console.log(el.vendorID.name);
             const node = temp.cloneNode(true);
 
             node.innerHTML += `
@@ -247,8 +248,8 @@ bookings.addEventListener('click', async () => {
     <hr style="background-color:white">
     <p id="bookingDate"><span style="color: orange; padding: 0px 10px 0 0;">bookingDate: </span><span id="name1">${el.bookingDate}</span></p>
     <p id="bookingTime"><span style="color: orange; padding: 0px 10px 0 0;">bookingTime: </span><span id="name1">${el.bookingTime}</span></p>
-    <p id="vendorID"><span style="color: orange; padding: 0px 10px 0 0;float:left">vendorID: </span>${el.vendorID}</p>
-    <p id="serviceID"><span style="color: orange; padding: 0px 10px 0 0;float:left">serviceID: </span><span id="address1">${el.serviceID}</span></p>
+    <p id="vendorID"><span style="color: orange; padding: 0px 10px 0 0;float:left">vendor: </span>${el.vendorID.name}</p>
+    <p id="serviceID"><span style="color: orange; padding: 0px 10px 0 0;float:left">service: </span><span id="address1">${el.serviceID.name}</span></p>
     <p id="totalPrice"><span style="color: orange; padding: 0px 10px 0 0;float:left">totalPrice: </span>${el.totalPrice}</p>
     <p id="qty"><span style="color: orange; padding: 0px 10px 0 0;float:left">Qty: </span>${el.qty}</p>
     <p id="bookingStatus"><span style="color: orange; padding: 0px 10px 0 0;float:left">bookingStatus: </span><span id="updatedAt1">${el.bookingStatus}</span></p>
