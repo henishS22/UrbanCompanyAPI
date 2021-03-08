@@ -16,6 +16,7 @@ const time = document.getElementById('time');
 const serv = document.getElementById('serv');
 const cat = document.getElementById('cat');
 let venId;
+
 profile.addEventListener('click', async function prof() {
 
     const res = await axios.get(`${window.location.origin}/api/v1/user/Info`, {
@@ -27,15 +28,15 @@ profile.addEventListener('click', async function prof() {
         const data = res.data.data
         results.innerHTML = "";
         results.innerHTML = `
-        <div id="prof" style="margin: 100px; border: 1px solid black;padding: 10px 100px;width:50%;background-color:#0d0445; color: white">
+        <div id="prof" style="margin: 100px; border: 1px solid black;padding: 10px;width:50%;background-color:#0d0445; color: white">
         <h3>User Profile</h3>
         <p><span style="color: orange;">Role: </span>${res.data.data.role}</p>
         <hr style="background-color:white">
-        <p id="name"><span style="color: orange; padding: 0px 10px 0 0;">Name: </span><span id="name1">${res.data.data.name}</span></p>
-        <p id="email"><span style="color: orange; padding: 0px 10px 0 0;float:left">Email: </span>${res.data.data.email}</p>
-        <p id="address"><span style="color: orange; padding: 0px 10px 0 0;float:left">Address: </span><span id="address1">${res.data.data.address}</span></p>
-        <p id="createdAt"><span style="color: orange; padding: 0px 10px 0 0;float:left">createdAt: </span>${res.data.data.createdAt}</p>
-        <p id="updatedAt"><span style="color: orange; padding: 0px 10px 0 0;float:left">updatedAt: </span><span id="updatedAt1">${res.data.data.updatedAt}</span></p>
+        <p id="name"><span style="color: orange;">Name: </span><span id="name1">${res.data.data.name}</span></p>
+        <p id="email"><span style="color: orange;">Email: </span>${res.data.data.email}</p>
+        <p id="address"><span style="color: orange;">Address: </span><span id="address1">${res.data.data.address}</span></p>
+        <p id="createdAt"><span style="color: orange;">createdAt: </span>${res.data.data.createdAt}</p>
+        <p id="updatedAt"><span style="color: orange;">updatedAt: </span><span id="updatedAt1">${res.data.data.updatedAt}</span></p>
         <button id="updateBtn" data-toggle="modal" data-target="#mymodal" style="border-radius:5%">Update</button>
         <button id="cancelBtn" style="border-radius:5%">Cancel</button>
     </div>`;
@@ -89,7 +90,7 @@ services.addEventListener('click', async () => {
         res.data.data.forEach(el => {
             const node = temp.cloneNode(true);
             node.innerHTML = `
-            <div id="boo" style="margin: 100px; border: 1px solid black;padding: 10px 100px;width:50%;background-color:#0d0445; color: white">
+            <div id="boo" style="margin: 100px; border: 1px solid black;padding: 10px ;width:50%;background-color:#0d0445; color: white">
             <h3>Services</h3>
             <hr style="background-color:white">
             <p id="bookingDate"><span style="color: orange; padding: 0px 10px 0 0;">Name: </span><span id="name1">${el.name}</span></p>
