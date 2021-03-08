@@ -11,7 +11,7 @@ const userRouter = require('./routes/userRoutes');
 const CategoryRouter = require('./routes/categoryRoutes');
 const serviceRouter = require('./routes/serviceRoutes');
 const logger = require('./middlewares/logger');
-
+const indexRouter = require('./routes/index')
 var app = express();
 
 app.engine('html', cons.swig)
@@ -22,9 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/', function(req, res, next) {
-    res.render('index.html');
-});
+app.use('/',indexRouter)
 app.use('/api/v1/user', userRouter);
 app.use('/api/v1/category', CategoryRouter);
 app.use('/api/v1/service', serviceRouter);

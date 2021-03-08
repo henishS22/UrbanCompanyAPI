@@ -54,3 +54,19 @@ info: Mar-05-2021 14:57:06: 	Mongoose connection open to master DB
 {"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-08-2021 15:07:22"}
 {"message":"\t::1 - - [Mon, 08 Mar 2021 11:31:34 GMT] \"GET /favicon.ico HTTP/1.1\" 404 150 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36\"\n","level":"info","timestamp":"Mar-08-2021 17:01:34"}
 {"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-08-2021 17:01:37"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-08-2021 17:15:51"}
+{"message":"\t::1 - - [Mon, 08 Mar 2021 11:45:59 GMT] \"PUT /api/v1/user/login HTTP/1.1\" 500 2623 \"-\" \"PostmanRuntime/7.26.10\"\n","level":"info","timestamp":"Mar-08-2021 17:15:59"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-08-2021 17:16:39"}
+{"message":"\t::1 - - [Mon, 08 Mar 2021 11:46:42 GMT] \"PUT /api/v1/user/login HTTP/1.1\" 500 2623 \"-\" \"PostmanRuntime/7.26.10\"\n","level":"info","timestamp":"Mar-08-2021 17:16:42"}
+{"message":"\t::1 - - [Mon, 08 Mar 2021 11:47:26 GMT] \"PUT /api/v1/user/login HTTP/1.1\" 500 2623 \"-\" \"PostmanRuntime/7.26.10\"\n","level":"info","timestamp":"Mar-08-2021 17:17:26"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-08-2021 17:17:27"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-08-2021 17:18:22"}
+{"message":"\t::1 - - [Mon, 08 Mar 2021 11:48:25 GMT] \"PUT /api/v1/user/login HTTP/1.1\" 201 227 \"-\" \"PostmanRuntime/7.26.10\"\n","level":"info","timestamp":"Mar-08-2021 17:18:25"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-08-2021 17:18:49"}
+{"message":"\t::1 - - [Mon, 08 Mar 2021 11:48:49 GMT] \"PUT /api/v1/user/login HTTP/1.1\" 500 2623 \"-\" \"PostmanRuntime/7.26.10\"\n","level":"info","timestamp":"Mar-08-2021 17:18:49"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-08-2021 17:22:26"}
+{"message":"\t::1 - - [Mon, 08 Mar 2021 11:52:27 GMT] \"PUT /api/v1/user/login HTTP/1.1\" 500 2623 \"-\" \"PostmanRuntime/7.26.10\"\n","level":"info","timestamp":"Mar-08-2021 17:22:27"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-08-2021 17:22:39"}
+{"message":"\t::1 - - [Mon, 08 Mar 2021 11:53:00 GMT] \"PUT /api/v1/user/login HTTP/1.1\" 201 227 \"-\" \"PostmanRuntime/7.26.10\"\n","level":"info","timestamp":"Mar-08-2021 17:23:00"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-08-2021 17:23:56"}
+{"message":"\t::1 - - [Mon, 08 Mar 2021 11:53:57 GMT] \"PUT /api/v1/user/login HTTP/1.1\" 201 227 \"-\" \"PostmanRuntime/7.26.10\"\n","level":"info","timestamp":"Mar-08-2021 17:23:57"}
