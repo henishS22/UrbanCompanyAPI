@@ -18,7 +18,7 @@ const cat = document.getElementById('cat');
 let venId;
 profile.addEventListener('click', async function prof() {
 
-    const res = await axios.get("http://localhost:3000/api/v1/user/Info", {
+    const res = await axios.get(`${window.location.origin}/api/v1/user/Info`, {
         headers: {
             Authorization: localStorage.getItem('Authorization')
         }
@@ -51,7 +51,7 @@ profile.addEventListener('click', async function prof() {
         })
 
         updateBtn.addEventListener('click', async () => {
-            const res1 = await axios.put("http://localhost:3000/api/v1/user/update", {
+            const res1 = await axios.put(`${window.location.origin}/api/v1/user/update`, {
                 name: nameVal.value,
                 address: addressVal.value
             }, {
@@ -73,7 +73,7 @@ profile.addEventListener('click', async function prof() {
 })
 
 services.addEventListener('click', async () => {
-    const res = await axios.get("http://localhost:3000/api/v1/service/list-services", {
+    const res = await axios.get(`${window.location.origin}/api/v1/service/list-services`, {
         headers: {
             Authorization: localStorage.getItem('Authorization')
         }
@@ -139,7 +139,7 @@ services.addEventListener('click', async () => {
                     if (venId === undefined) {
                         venId = el.vendorID[0]._id;
                     }
-                    const res2 = await axios.post("http://localhost:3000/api/v1/user/book", {
+                    const res2 = await axios.post(`${window.location.origin}/api/v1/user/book`, {
                         vendorID: venId,
                         serviceID: el._id,
                         qty: qty1.value,
@@ -171,7 +171,7 @@ function showOptions(s) {
 }
 
 categories.addEventListener('click', async () => {
-    const res = await axios.get("http://localhost:3000/api/v1/category/list-categories", {
+    const res = await axios.get(`${window.location.origin}/api/v1/category/list-categories`, {
         headers: {
             Authorization: localStorage.getItem('Authorization')
         }
@@ -196,7 +196,7 @@ categories.addEventListener('click', async () => {
 </div>`;
             node.content.querySelector('#category').addEventListener('click', async () => {
 
-                const res5 = await axios.get(`http://localhost:3000/api/v1/service/get-category-services?id=${el._id}`, {
+                const res5 = await axios.get(`${window.location.origin}/api/v1/service/get-category-services?id=${el._id}`, {
 
                     headers: {
                         Authorization: localStorage.getItem('Authorization')
@@ -214,7 +214,7 @@ categories.addEventListener('click', async () => {
 
                     node.content.querySelector('#service3').addEventListener('click', async () => {
 
-                        const res6 = await axios.get(`http://localhost:3000/api/v1/service/get-service?id=${el1._id}`, {
+                        const res6 = await axios.get(`${window.location.origin}/api/v1/service/get-service?id=${el1._id}`, {
 
                             headers: {
                                 Authorization: localStorage.getItem('Authorization')
@@ -277,7 +277,7 @@ categories.addEventListener('click', async () => {
                                 if (venId === undefined) {
                                     venId = res6.data.data.vendorID[0]._id;
                                 }
-                                const res2 = await axios.post("http://localhost:3000/api/v1/user/book", {
+                                const res2 = await axios.post(`${window.location.origin}/api/v1/user/book`, {
                                     vendorID: venId,
                                     serviceID: res6.data.data._id,
                                     qty: qty1.value,
@@ -315,7 +315,7 @@ categories.addEventListener('click', async () => {
 
 
 bookings.addEventListener('click', async () => {
-    const res = await axios.get("http://localhost:3000/api/v1/user/bookings", {
+    const res = await axios.get(`${window.location.origin}/api/v1/user/bookings`, {
         headers: {
             Authorization: localStorage.getItem('Authorization')
         }
@@ -346,7 +346,7 @@ bookings.addEventListener('click', async () => {
             if (el.bookingStatus === 'pending') {
                 node.content.querySelector('#cancelBtn').style.display = 'block';
                 node.content.querySelector('#cancelBtn').addEventListener('click', async () => {
-                    const res4 = await axios.put("http://localhost:3000/api/v1/user/cancel", {
+                    const res4 = await axios.put(`${window.location.origin}/api/v1/user/cancel`, {
                         bookingId: el._id
                     }, {
                         headers: {
