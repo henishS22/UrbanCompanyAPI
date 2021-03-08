@@ -331,16 +331,16 @@ bookings.addEventListener('click', async () => {
             const node = temp.cloneNode(true);
 
             node.innerHTML += `
-    <div id="boo" style="margin: 100px; border: 1px solid black;padding: 10px 100px;width:50%;background-color:#0d0445; color: white">
+    <div id="boo" style="margin: 100px; border: 1px solid black;padding: 10px;width:50%;background-color:#0d0445; color: white">
     <h3>Bookings</h3>
     <hr style="background-color:white">
-    <p id="bookingDate"><span style="color: orange; padding: 0px 10px 0 0;">bookingDate: </span><span id="name1">${el.bookingDate}</span></p>
-    <p id="bookingTime"><span style="color: orange; padding: 0px 10px 0 0;">bookingTime: </span><span id="name1">${el.bookingTime}</span></p>
-    <p id="vendorID"><span style="color: orange; padding: 0px 10px 0 0;float:left">vendor: </span>${el.vendorID.name}</p>
-    <p id="serviceID"><span style="color: orange; padding: 0px 10px 0 0;float:left">service: </span><span id="address1">${el.serviceID.name}</span></p>
-    <p id="totalPrice"><span style="color: orange; padding: 0px 10px 0 0;float:left">totalPrice: </span>${el.totalPrice}</p>
-    <p id="qty"><span style="color: orange; padding: 0px 10px 0 0;float:left">Qty: </span>${el.qty}</p>
-    <p id="bookingStatus"><span style="color: orange; padding: 0px 10px 0 0;float:left">bookingStatus: </span><span id="updatedAt1">${el.bookingStatus}</span></p>
+    <p id="bookingDate"><span style="color: orange;">bookingDate: </span><span id="name1">${el.bookingDate}</span></p>
+    <p id="bookingTime"><span style="color: orange;">bookingTime: </span><span id="name1">${el.bookingTime}</span></p>
+    <p id="vendorID"><span style="color: orange; ">vendor: </span>${el.vendorID.name}</p>
+    <p id="serviceID"><span style="color: orange;">service: </span><span id="address1">${el.serviceID.name}</span></p>
+    <p id="totalPrice"><span style="color: orange;">totalPrice: </span>${el.totalPrice}</p>
+    <p id="qty"><span style="color: orange;">Qty: </span>${el.qty}</p>
+    <p id="bookingStatus"><span style="color: orange;">bookingStatus: </span><span id="updatedAt1">${el.bookingStatus}</span></p>
     <p id="cancelBtn" style="display:none;"><button id="cancelBook">Cancel Booking</button>
 </div>`;
 
