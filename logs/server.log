@@ -52,3 +52,5 @@ info: Mar-05-2021 14:57:06: 	Mongoose connection open to master DB
 {"message":"\t::ffff:127.0.0.1 - - [Mon, 08 Mar 2021 09:35:18 GMT] \"PUT /api/v1/user/login HTTP/1.1\" 400 72 \"-\" \"PostmanRuntime/7.26.10\"\n","level":"info","timestamp":"Mar-08-2021 15:05:18"}
 {"message":"\t::1 - - [Mon, 08 Mar 2021 09:35:33 GMT] \"PUT /api/v1/user/login HTTP/1.1\" 400 72 \"-\" \"PostmanRuntime/7.26.10\"\n","level":"info","timestamp":"Mar-08-2021 15:05:33"}
 {"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-08-2021 15:07:22"}
+{"message":"\t::1 - - [Mon, 08 Mar 2021 11:31:34 GMT] \"GET /favicon.ico HTTP/1.1\" 404 150 \"http://localhost:3000/\" \"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/89.0.4389.82 Safari/537.36\"\n","level":"info","timestamp":"Mar-08-2021 17:01:34"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-08-2021 17:01:37"}
