@@ -14,6 +14,7 @@ const qty1 = document.getElementById('qty');
 const date = document.getElementById('date');
 const time = document.getElementById('time');
 const serv = document.getElementById('serv');
+const cat = document.getElementById('cat');
 let venId;
 profile.addEventListener('click', async function prof() {
 
@@ -82,6 +83,7 @@ services.addEventListener('click', async () => {
         location.href = '../index.html';
         localStorage.removeItem('Authorization');
     } else {
+        cat.innerHTML = "";
         results.innerHTML = "";
         console.log(res.data);
         res.data.data.forEach(el => {
@@ -174,23 +176,18 @@ categories.addEventListener('click', async () => {
             Authorization: localStorage.getItem('Authorization')
         }
     });
-    console.log(res.data);
-
-
 
     if (!res.data.data) {
         alert('Session Time out, Login Again');
         location.href = '../index.html';
         localStorage.removeItem('Authorization');
     } else {
+        console.log(res.data)
         results.innerHTML = ""
         res.data.data.forEach(el => {
             const node = temp.cloneNode(true);
-            // results.innerHTML = "";
-            // for (let i = 0; i < res.data.data.length; i++) {
-            //     console.log(i);
             node.innerHTML += `
-    <div id="cat" style="margin: 10px 10px 0px 10px; border: 1px solid black;padding: 10px 50px;background-color:#0d0445; color: white">
+    <div id="catop" style="margin: 10px 10px 0px 10px; border: 1px solid black;padding: 10px 50px;background-color:#0d0445; color: white">
     <h3>Categories</h3>
     <hr style="background-color:white">
     <p id="category"><span style="color: orange; padding: 0px 10px 0 0;">Name: </span><span id="cat">${el.name}</span></p>
@@ -206,26 +203,114 @@ categories.addEventListener('click', async () => {
                     }
                 }
                 );
-
                 res5.data.data.forEach(el1 => {
-
+                    console.log(el1)
                     node.innerHTML += `
-                    <div id="cat" style="margin: 10px 10px 0 10px; border: 1px solid black;padding: 10px 10px;background-color:#a8b2e6; color: black">
+                    <div id="cat" style="margin: 10px 10px 0 10px; border: 1px solid black;padding: 10px 10px;background-color:#140d01; color: white">
                     <h3>${el.name}</h3>
                     <hr style="background-color:white">
-                    <p id="service"><span style="color: #; padding: 0px 10px 0 0;">Service: </span><span id="cat">${el1.name}</span></p>
+                    <p id="service3"><span style="color:orange "; padding: 0px 10px 0 0;">Service: </span><span id="catgg">${el1.name}</span></p>
                     </div>`
+
+                    node.content.querySelector('#service3').addEventListener('click', async () => {
+
+                        const res6 = await axios.get(`http://localhost:3000/api/v1/service/get-service?id=${el1._id}`, {
+
+                            headers: {
+                                Authorization: localStorage.getItem('Authorization')
+                            }
+                        }
+                        );
+                        console.log(res6.data);
+                        results.innerHTML = "";
+                        serv.innerHTML = "";
+                        node.innerHTML = `
+                       <div id="boo" style="margin: 10px 10px 100px 20px; border: 1px solid black;padding: 10px 10px 0px 20px;width:90%;background-color:#0d0445; color: white">
+                       <h3>Services</h3>
+                       <hr style="background-color:white">
+                       <p id="bookingDate"><span style="color: orange; padding: 0px 10px 0 0;">Name: </span><span id="name1">${el1.name}</span></p>
+                       <p id="vendorID"><span style="color: orange; padding: 0px 10px 0 0;float:left">Description: </span>${el1.description}</p>
+                       <p id="serviceID"><span style="color: orange; padding: 0px 10px 0 0;float:left">Price: </span><span id="address1">${el1.price}</span></p>
+                       <p id="totalPrice"><span style="color: orange; padding: 0px 10px 0 0;float:left">service time: </span>${el1.serviceTime}</p>
+                       <p id="qty"><span style="color: orange; padding: 0px 10px 0 0;float:left">Category: </span>${res6.data.data.categoryID.name}</p>
+                       <p id="wow"><span  style="color: orange; padding: 0px 10px 0 0;float:left">Vendor : </span><span id="xy"></span></p>
+                       <br><button class= "oo" data-toggle="modal" data-target="#bookModal" style="border-radius:5%">Book
+                       </button>      
+                   </div>`;
+
+
+                        if (res6.data.data.vendorID.length == 1) {
+
+
+                            for (let k = 0; k < res6.data.data.vendorID.length; k++) {
+                                console.log(res6.data.data.vendorID[k].name);
+                                node.content.querySelector('#wow').innerHTML += ` <p id="bookingStatus"><span id="updatedAt1">${res6.data.data.vendorID[k].name}</span></p>`
+                            }
+                        } else {
+                            for (let k = 0; k < res6.data.data.vendorID.length; k++) {
+                                // const x1 = <p id="bookingStatus"><span style="color: orange; padding: 0px 10px 0 0;float:left">vendor: </span><span id="updatedAt1">${el.vendorID[k].name}</span></p>
+                                if (k == res6.data.data.vendorID.length - 1) {
+
+                                    node.content.querySelector('#wow #xy').innerHTML += ` <span id="bookingStatus"><span id="updatedAt1">${res6.data.data.vendorID[k].name}</span></span>`
+                                } else {
+                                    node.content.querySelector('#wow #xy').innerHTML += ` <span id="bookingStatus"><span id="updatedAt1">${res6.data.data.vendorID[k].name} , </span></span>`
+                                }
+                            }
+                        }
+                        node.content.querySelector('.oo').addEventListener('click', async () => {
+                            ven.innerHTML = "";
+                            for (let j = 0; j < res6.data.data.vendorID.length; j++) {
+
+                                ven.innerHTML += `<option id="${res6.data.data.vendorID[j]._id}" value='${res6.data.data.vendorID[j]}'>${res6.data.data.vendorID[j].name}</option>`
+
+                            }
+                          
+
+                            book.addEventListener('click', async () => {
+                                console.log(res6.data.data._id)
+                                console.log(venId)
+                                console.log(qty1.value)
+                                console.log(date.value.toString());
+                                // console.log(typeof hh)
+                                console.log(time.value);
+
+                                if (venId === undefined) {
+                                    venId = res6.data.data.vendorID[0]._id;
+                                }
+                                const res2 = await axios.post("http://localhost:3000/api/v1/user/book", {
+                                    vendorID: venId,
+                                    serviceID: res6.data.data._id,
+                                    qty: qty1.value,
+                                    bookingDate: date.value.toString(),
+                                    bookingTime: time.value
+                                }, {
+                                    headers: {
+                                        Authorization: localStorage.getItem('Authorization')
+                                    }
+                                }
+                                );
+                                console.log(res2)
+                                if (res2.data.status === 'success') {
+
+                                    alert('Service Booked');
+                                } else {
+                                    alert('Booking Failed, Try Again !');
+                                }
+
+                            })
+                        })
+
+                        serv.append(node.content)
+                    })
+                    serv.append(node.content);
                 })
-
-
-                serv.append(node.content);
-
-
-                console.log(res5);
             })
-            results.append(node.content);
+
+
+            cat.append(node.content);
         })
     }
+
 });
 
 
@@ -238,6 +323,8 @@ bookings.addEventListener('click', async () => {
     console.log(res.data.data);
     if (res.data.data) {
         results.innerHTML = "";
+        cat.innerHTML = "";
+        serv.innerHTML = "";
         res.data.data.forEach(el => {
             console.log(el.vendorID.name);
             const node = temp.cloneNode(true);

@@ -54,7 +54,11 @@ exports.updateService = async (req, res) =>{
 exports.getService = async (req, res) => {
     try{
         const _id = req.param('id');
-        const service = await Service.findById(_id);;
+        const service = await Service.findById(_id).populate({
+            path: 'vendorID'
+        }).populate({
+            path: 'categoryID'
+        });
         if (!service){
             throw new Error('No such service Found');
         }

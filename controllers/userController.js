@@ -6,6 +6,8 @@ const appError = require('../utils/appError');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 const sendEmail = require('../utils/email');
+var createError = require('http-errors');
+const logger = require('../middlewares/logger');
 
 exports.register = async (req, res, next) => {
     try {
@@ -28,6 +30,7 @@ exports.register = async (req, res, next) => {
 
 exports.login = async (req, res, next) => {
     try {
+        
         const { email, password } = req.body;
         const user = await User.findOne({ email });
         if (!user) {

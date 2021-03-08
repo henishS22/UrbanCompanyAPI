@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const db = require('../connections/dbMaster');
 const serviceSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -37,5 +38,5 @@ const serviceSchema = new mongoose.Schema({
     }]
 });
 
-const Service = mongoose.model('service', serviceSchema);
+const Service = db.model('service', serviceSchema);
 module.exports = Service;

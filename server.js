@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 dotenv.config({ path: './config.env' });
 const app = require('./app');
 
-const DB = process.env.DATABASE.replace(
+/* const DB = process.env.DATABASE.replace(
     '<PASSWORD>',
     process.env.DATABASE_PASSWORD
 );
@@ -19,4 +19,24 @@ mongoose
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
     console.log("listening")
-});
+}); */
+
+
+
+
+module.exports = {
+    db: {
+        str: process.env.DATABASE.replace(
+            '<PASSWORD>',
+            process.env.DATABASE_PASSWORD
+        ),
+    
+        options: {
+            useNewUrlParser: true,
+            useCreateIndex: true,
+            useFindAndModify: false,
+            useUnifiedTopology: true
+        }
+
+    }
+}

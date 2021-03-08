@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const db = require('../connections/dbMaster');
 const crypto = require('crypto');
 const validator = require('validator');
 const bcrypt = require('bcrypt');
@@ -84,5 +85,5 @@ userSchema.methods.createPasswordResetToken = function () {
     return resetToken;
 }
 
-const User = mongoose.model('Users', userSchema);
+const User = db.model('Users', userSchema);
 module.exports = User;

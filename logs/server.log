@@ -1,0 +1,54 @@
+info: Mar-05-2021 14:43:56: 	Mongoose connection open to master DB
+{"message":"Mongoose connection open to master DB","level":"info"}
+{"level: info", "time": Mar-05-2021 14:46:21, "message": 	Mongoose connection open to master DB}
+{"level": "info", "time": "Mar-05-2021 14:47:10", "message": "	Mongoose connection open to master DB"}
+{"level": "info", "time": "Mar-05-2021 14:47:40", "message": "	Mongoose connection open to master DB"}
+info Mar-05-2021 14:48:37 	Mongoose connection open to master DB
+info: Mar-05-2021 14:48:46: 	Mongoose connection open to master DB
+info: Mar-05-2021 14:49:21: 	Mongoose connection open to master DB
+info: Mar-05-2021 14:49:29: 	Mongoose connection open to master DB
+info: Mar-05-2021 14:52:16: 	Mongoose connection open to master DB
+{"message":"Mongoose connection open to master DB","level":"info"}
+info: Mar-05-2021 14:53:48: 	Mongoose connection open to master DB
+{"message":"Mongoose connection open to master DB","level":"info"}
+info: Mar-05-2021 14:54:40: 	Mongoose connection open to master DB
+info: Mar-05-2021 14:57:06: 	Mongoose connection open to master DB
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 14:59:00"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:00:10"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:13:45"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:14:59"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:15:25"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:17:36"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:18:39"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:19:26"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:19:33"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:23:00"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:30:03"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:39:53"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:40:22"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:40:58"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:41:48"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:42:19"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:42:44"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:43:26"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:43:48"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:44:17"}
+{"message":"\tMongoose connection disconnected for master DB","level":"info","timestamp":"Mar-05-2021 15:44:36"}
+{"message":"\tMongoose connection error","level":"error","timestamp":"Mar-05-2021 15:44:36"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:46:01"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:49:53"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:51:17"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:53:25"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:53:39"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 15:54:11"}
+{"message":"\t::1 - - [Fri, 05 Mar 2021 10:24:24 GMT] \"GET /api/v1/service/list-services HTTP/1.1\" 200 15 \"-\" \"PostmanRuntime/7.26.10\"\n","level":"info","timestamp":"Mar-05-2021 15:54:24"}
+{"message":"\t::1 - - [Fri, 05 Mar 2021 10:26:43 GMT] \"GET /api/v1/user/Info HTTP/1.1\" 200 15 \"-\" \"PostmanRuntime/7.26.10\"\n","level":"info","timestamp":"Mar-05-2021 15:56:43"}
+{"message":"\t::1 - - [Fri, 05 Mar 2021 10:26:46 GMT] \"GET /api/v1/user/bookings HTTP/1.1\" 200 15 \"-\" \"PostmanRuntime/7.26.10\"\n","level":"info","timestamp":"Mar-05-2021 15:56:46"}
+{"message":"\t::1 - - [Fri, 05 Mar 2021 10:26:48 GMT] \"GET /api/v1/service/list-services HTTP/1.1\" 200 15 \"-\" \"PostmanRuntime/7.26.10\"\n","level":"info","timestamp":"Mar-05-2021 15:56:48"}
+{"message":"\tMongoose connection disconnected for master DB","level":"info","timestamp":"Mar-05-2021 16:27:43"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-05-2021 16:32:01"}
+{"message":"\tMongoose connection reconnected","level":"info","timestamp":"Mar-05-2021 16:32:01"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-08-2021 15:05:17"}
+{"message":"\t::ffff:127.0.0.1 - - [Mon, 08 Mar 2021 09:35:18 GMT] \"PUT /api/v1/user/login HTTP/1.1\" 400 72 \"-\" \"PostmanRuntime/7.26.10\"\n","level":"info","timestamp":"Mar-08-2021 15:05:18"}
+{"message":"\t::1 - - [Mon, 08 Mar 2021 09:35:33 GMT] \"PUT /api/v1/user/login HTTP/1.1\" 400 72 \"-\" \"PostmanRuntime/7.26.10\"\n","level":"info","timestamp":"Mar-08-2021 15:05:33"}
+{"message":"\tMongoose connection open to master DB","level":"info","timestamp":"Mar-08-2021 15:07:22"}

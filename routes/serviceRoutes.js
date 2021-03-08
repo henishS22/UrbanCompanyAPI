@@ -10,7 +10,7 @@ router.delete('/delete-service', isAdmin, protect, deleteService);
 router.get('/list-services',loggedIn,protect, listServices);
 router.put('/update', isAdmin, protect,updateService);
 
-router.get('/get-service',isAdmin, protect,getService);
+router.get('/get-service',loggedIn, protect,getService);
 router.get('/get-category-services', loggedIn,protect, getServiceOfCategory);
 
 module.exports = router;

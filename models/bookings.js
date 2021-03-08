@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const db = require('../connections/dbMaster');
 const bookingsSchema = new mongoose.Schema({
     userID: {
         type: mongoose.Schema.ObjectId,
@@ -47,5 +47,5 @@ const bookingsSchema = new mongoose.Schema({
     }
 });
 
-const Bookings = mongoose.model('Bookings', bookingsSchema);
+const Bookings = db.model('Bookings', bookingsSchema);
 module.exports = Bookings;
