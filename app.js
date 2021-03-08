@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.get('/', function(req, res, next) {
+app.use('/', function(req, res, next) {
     res.render('index.html');
 });
 app.use('/api/v1/user', userRouter);
