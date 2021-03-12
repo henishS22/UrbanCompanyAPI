@@ -272,15 +272,15 @@ exports.showBookings = async (req, res, next) => {
             })
         } else {
             if (filter) {
-                const bookings = await Booking.find({ userID: filter }).populate({
-                    path: 'Bookings'
-                });;
+                const bookings = await Booking.find({ userID: filter }).populate(
+                    'userID vendorID serviceID' 
+                );
                 res.status(200).json({
                     total: bookings.length,
                     data: bookings
                 })
             } else {
-                const bookings = await Booking.find();
+                const bookings = await Booking.find({}).populate("vendorID serviceID userID");
                 res.status(200).json({
                     total: bookings.length,
                     data: bookings

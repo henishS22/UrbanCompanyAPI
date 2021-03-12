@@ -1,9 +1,8 @@
 // const cons = require("consolidate");
-
 const user = document.getElementById('email');
 const pass = document.getElementById('password');
 const emailErr = document.getElementById('emailErr');
-
+const links = document.getElementById('links')
 const form = document.getElementById('form');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -20,11 +19,15 @@ btn.addEventListener('click', async () => {
         console.log(res.data);
         if (res.data.status === 'success') {
             if (res.data.role === 'customer') {
-                location.href = '../profile.html'
+                location.href = '/profile'
+                // form.action = '/pages/profile'
+                // form.method = 'get'
+
             } else if (res.data.role === 'vendor') {
                 
             } else if (res.data.role === 'admin') {
-                location.href = '../profile.html'
+                // location.href = '../views/pages/profile.ejs'
+                location.href = '/admin'
             }
             localStorage.setItem('Authorization', res.data.token);
         } else {

@@ -11,11 +11,15 @@ const userRouter = require('./routes/userRoutes');
 const CategoryRouter = require('./routes/categoryRoutes');
 const serviceRouter = require('./routes/serviceRoutes');
 const logger = require('./middlewares/logger');
-const indexRouter = require('./routes/index')
+const indexRouter = require('./routes/index');
+const ejs = require('ejs');
 var app = express();
 
 app.engine('html', cons.swig)
+
 app.use(express.static(path.join(__dirname, 'public')));
+app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname, 'views')));
 
 app.use(morgan({'stream': logger.stream}));
 app.use(express.json());

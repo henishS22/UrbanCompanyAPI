@@ -29,7 +29,7 @@ exports.listCategories = async (req, res) => { // public API
 exports.updateCategory = async (req, res) => {
     try {
         const _id = req.param('id');
-        const category = await Category.findByIdAndUpdate(_id, req.body);;
+        const category = await Category.findByIdAndUpdate(_id, req.body);
         if (!category) {
             throw new Error('No such category Found');
         }

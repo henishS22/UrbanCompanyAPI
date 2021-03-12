@@ -36,6 +36,7 @@ exports.isAdmin = async (req, res, next) => {
         if (!user || user.role !== 'admin') {
             throw new Error();
         } else {
+            req.user = user;
             next();
         }
     } catch (e) {

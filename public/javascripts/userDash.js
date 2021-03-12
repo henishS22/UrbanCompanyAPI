@@ -68,7 +68,7 @@ profile.addEventListener('click', async function prof() {
         })
     } else {
         alert('Session Time out, Login Again');
-        location.href = '../index.html';
+        location.href = '/';
         localStorage.removeItem('Authorization');
     }
 })
@@ -180,7 +180,7 @@ categories.addEventListener('click', async () => {
 
     if (!res.data.data) {
         alert('Session Time out, Login Again');
-        location.href = '../index.html';
+        location.href = '/';
         localStorage.removeItem('Authorization');
     } else {
         console.log(res.data)
@@ -369,12 +369,12 @@ bookings.addEventListener('click', async () => {
         results.innerHTML = "";
         alert('Session TIme out, Login Again !');
         localStorage.removeItem('Authorization');
-        location.href = '../index.html';
+        location.href = '/';
     }
 })
 
 logout.addEventListener('click', async () => {
-    location.href = '../index.html'
+    location.href = '/'
     localStorage.removeItem('Authorization');
 
 })

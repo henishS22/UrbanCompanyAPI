@@ -1,12 +1,12 @@
 const Service = require('../models/service');
 
 exports.addService = async (req, res) => { // only allowed for 'admin'
-    try{
-        const service = await Service.create(req.body);
-        const isAlreadyPresent = await Category.findOne({ name: req.body.name });
+    try {
+        const isAlreadyPresent = await Service.findOne({ name: req.body.name });
         if (isAlreadyPresent) {
             throw new Error('Service alreday exists');
         }
+        const service = await Service.create(req.body);
         res.status(200).json({message: 'Service Added', data: service});
 
     }catch(e){
