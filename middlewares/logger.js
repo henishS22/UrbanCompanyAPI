@@ -3,15 +3,6 @@ const winston = require('winston');
 
 const logger = new winston.createLogger({
     transports: [
-        // new winston.transports.File({
-        //     level: 'info',
-        //     filename: './logs/all-logs.log',
-        //     handleExceptions: true,
-        //     json: true,
-        //     maxsize: 5242880, // 5MB
-        //     maxFiles: 5, // if log file size is greater than 5MB, logfile2 is generated
-        //     colorize: true,
-        // })
         new winston.transports.File({
             level: 'info',
             filename: './logs/server.log',

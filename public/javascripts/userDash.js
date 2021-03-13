@@ -52,19 +52,24 @@ profile.addEventListener('click', async function prof() {
         })
 
         updateBtn.addEventListener('click', async () => {
-            const res1 = await axios.put(`${window.location.origin}/api/v1/user/update`, {
-                name: nameVal.value,
-                address: addressVal.value
-            }, {
-                headers: {
-                    Authorization: localStorage.getItem('Authorization')
-                },
-            });
-            results.querySelector('#name1').textContent = nameVal.value;
-            results.querySelector('#address1').textContent = addressVal.value;
-            results.querySelector('#updatedAt1').textContent = res1.data.data.updatedAt;
-            prof();
+            if (nameVal.value == '' || addressVal.value == '') {
+                alert('Can not update empty fields');
+            } else {
 
+
+                const res1 = await axios.put(`${window.location.origin}/api/v1/user/update`, {
+                    name: nameVal.value,
+                    address: addressVal.value
+                }, {
+                    headers: {
+                        Authorization: localStorage.getItem('Authorization')
+                    },
+                });
+
+                results.querySelector('#name1').textContent = nameVal.value;
+                results.querySelector('#address1').textContent = addressVal.value;
+                results.querySelector('#updatedAt1').textContent = res1.data.data.updatedAt;
+            }
         })
     } else {
         alert('Session Time out, Login Again');
@@ -86,7 +91,6 @@ services.addEventListener('click', async () => {
     } else {
         cat.innerHTML = "";
         results.innerHTML = "";
-        console.log(res.data);
         res.data.data.forEach(el => {
             const node = temp.cloneNode(true);
             node.innerHTML = `
@@ -102,12 +106,11 @@ services.addEventListener('click', async () => {
             <br><button class= "oo" data-toggle="modal" data-target="#bookModal" style="border-radius:5%">Book
             </button>      
         </div>`;
-            // console.log(el.vendorID);
             if (el.vendorID.length == 1) {
 
 
                 for (let k = 0; k < el.vendorID.length; k++) {
-                    console.log(el.vendorID[k].name);
+
                     node.content.querySelector('#wow').innerHTML += ` <p id="bookingStatus"><span id="updatedAt1">${el.vendorID[k].name}</span></p>`
                 }
             } else {
@@ -130,12 +133,6 @@ services.addEventListener('click', async () => {
 
                 }
                 book.addEventListener('click', async () => {
-                    console.log(el._id)
-                    console.log(venId)
-                    console.log(qty1.value)
-                    console.log(date.value.toString());
-                    // console.log(typeof hh)
-                    console.log(time.value);
 
                     if (venId === undefined) {
                         venId = el.vendorID[0]._id;
@@ -152,7 +149,7 @@ services.addEventListener('click', async () => {
                         }
                     }
                     );
-                    console.log(res2)
+
                     if (res2.data.status === 'success') {
 
                         alert('Service Booked');
@@ -183,7 +180,7 @@ categories.addEventListener('click', async () => {
         location.href = '/';
         localStorage.removeItem('Authorization');
     } else {
-        console.log(res.data)
+
         results.innerHTML = ""
         res.data.data.forEach(el => {
             const node = temp.cloneNode(true);
@@ -205,7 +202,7 @@ categories.addEventListener('click', async () => {
                 }
                 );
                 res5.data.data.forEach(el1 => {
-                    console.log(el1)
+
                     node.innerHTML += `
                     <div id="cat" style="margin: 10px 10px 0 10px; border: 1px solid black;padding: 10px 10px;background-color:#140d01; color: white">
                     <h3>${el.name}</h3>
@@ -222,7 +219,7 @@ categories.addEventListener('click', async () => {
                             }
                         }
                         );
-                        console.log(res6.data);
+
                         results.innerHTML = "";
                         serv.innerHTML = "";
                         node.innerHTML = `
@@ -244,7 +241,7 @@ categories.addEventListener('click', async () => {
 
 
                             for (let k = 0; k < res6.data.data.vendorID.length; k++) {
-                                console.log(res6.data.data.vendorID[k].name);
+
                                 node.content.querySelector('#wow').innerHTML += ` <p id="bookingStatus"><span id="updatedAt1">${res6.data.data.vendorID[k].name}</span></p>`
                             }
                         } else {
@@ -265,15 +262,10 @@ categories.addEventListener('click', async () => {
                                 ven.innerHTML += `<option id="${res6.data.data.vendorID[j]._id}" value='${res6.data.data.vendorID[j]}'>${res6.data.data.vendorID[j].name}</option>`
 
                             }
-                          
+
 
                             book.addEventListener('click', async () => {
-                                console.log(res6.data.data._id)
-                                console.log(venId)
-                                console.log(qty1.value)
-                                console.log(date.value.toString());
-                                // console.log(typeof hh)
-                                console.log(time.value);
+
 
                                 if (venId === undefined) {
                                     venId = res6.data.data.vendorID[0]._id;
@@ -290,7 +282,7 @@ categories.addEventListener('click', async () => {
                                     }
                                 }
                                 );
-                                console.log(res2)
+
                                 if (res2.data.status === 'success') {
 
                                     alert('Service Booked');
@@ -321,13 +313,13 @@ bookings.addEventListener('click', async () => {
             Authorization: localStorage.getItem('Authorization')
         }
     });
-    console.log(res.data.data);
+
     if (res.data.data) {
         results.innerHTML = "";
         cat.innerHTML = "";
         serv.innerHTML = "";
         res.data.data.forEach(el => {
-            console.log(el.vendorID.name);
+
             const node = temp.cloneNode(true);
 
             node.innerHTML += `

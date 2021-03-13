@@ -16,7 +16,7 @@ const s3 = document.getElementById('s3')
 const s4 = document.getElementById('s4')
 const s5 = document.getElementById('s5')
 const name2 = document.getElementById('name3')
-const email =document.getElementById('email')
+const email = document.getElementById('email')
 const address = document.getElementById('address')
 const searchUser = document.getElementById('searchUser');
 const searchOption = document.getElementById('searchOption');
@@ -27,25 +27,28 @@ let res1;
 let count = 0;
 
 async function showProfile() {
-     re2 = await axios.get(`${window.location.origin}/api/v1/user/Info`, {
+    re2 = await axios.get(`${window.location.origin}/api/v1/user/Info`, {
         headers: {
             Authorization: localStorage.getItem('Authorization')
         }
     })
-    console.log(re2);
     location.href = `/admin-profile?id=${re2.data.data._id}`
 }
 
 async function updateProfile(id) {
-    const e1 = await axios.put(`${window.location.origin}/api/v1/user/update`, {
-        name: name2.value,
-        email: email.value,
-        address:address.value
-    },{
-        headers: {
-            Authorization: localStorage.getItem('Authorization')
-        }
-    })
+    if (name2.value == '' || email.value == '' || address.value == '') {
+        alert('Can not update with Empty Fields!');
+    } else {
+        const e1 = await axios.put(`${window.location.origin}/api/v1/user/update`, {
+            name: name2.value,
+            email: email.value,
+            address: address.value
+        }, {
+            headers: {
+                Authorization: localStorage.getItem('Authorization')
+            }
+        })
+    }
     location.href = `/admin-profile?id=${id}`
 }
 
@@ -66,7 +69,6 @@ async function search() {
 
 
 async function searchStat() {
-    console.log(searchOption.value);
     location.href = `/bookings?status=${searchOption.value}`
 }
 
@@ -87,7 +89,6 @@ services.addEventListener('click', async () => {
             }
         }
     );
-    console.log(res1.data);
     if (count == 1) {
         res1.data.data.forEach(el => {
             catOption.innerHTML += `<option id="${el._id}">${el.name}</option>`
@@ -131,15 +132,18 @@ async function showCat(id) {
 }
 
 async function updateCat(id) {
-    const ree = await axios.put(`${window.location.origin}/api/v1/category/update?id=${id}`, {
-        name: p2.value
-    }, {
-        headers: {
-            Authorization: localStorage.getItem('Authorization')
-        }
-    });
-    console.log(ree);
-    location.href = `/category-detail?id=${id}`;
+    if (p2.value == '') {
+        alert('Can not update for empty Fields');
+    } else {
+        const ree = await axios.put(`${window.location.origin}/api/v1/category/update?id=${id}`, {
+            name: p2.value
+        }, {
+            headers: {
+                Authorization: localStorage.getItem('Authorization')
+            }
+        });
+        location.href = `/category-detail?id=${id}`;
+    }
 }
 
 async function deleteCat(id) {
@@ -181,19 +185,20 @@ async function showServ(id) {
 }
 
 async function updateServ(id) {
-    console.log(s1.value);
-    console.log(id);
-    const rees = await axios.put(`${window.location.origin}/api/v1/service/update?id=${id}`, {
-        name: s1.value,
-        price: s2.value,
-        description: s3.value,
-        serviceTime: s4.value
-    },{
-        headers: {
-            Authorization: localStorage.getItem('Authorization')
-        }
-    });
-    console.log(rees);
+    if (s1.value == '' || s2.value == '' || s3.value == '' || s4.value == '') {
+        alert('Can not update for empty fields !');
+    } else {
+        const rees = await axios.put(`${window.location.origin}/api/v1/service/update?id=${id}`, {
+            name: s1.value,
+            price: s2.value,
+            description: s3.value,
+            serviceTime: s4.value
+        }, {
+            headers: {
+                Authorization: localStorage.getItem('Authorization')
+            }
+        });
+    }
     location.href = `/service-detail?id=${id}`
 }
 
@@ -206,7 +211,7 @@ async function deleteServ(id) {
     location.href = '/services'
 }
 
-function logout1(){
+function logout1() {
     location.href = '/';
     localStorage.removeItem('Authorization');
 }

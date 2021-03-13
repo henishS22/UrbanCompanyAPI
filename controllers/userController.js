@@ -113,6 +113,12 @@ exports.updateInfo = async (req, res, next) => {
                 delete req.body[i]
             }
         }
+        for (let itemsFromBody in req.body) {
+            if (req.body[itemsFromBody] == '') {
+                console.log(req.body[itemsFromBody]);
+                res.send('Can not update Empty Fields');
+            }
+        }
         req.body.updatedAt = Date.now();
         const updatedUser = await User.findOneAndUpdate({ _id: req.user._id }, req.body);
         if (req.user.role === 'vendor') {
