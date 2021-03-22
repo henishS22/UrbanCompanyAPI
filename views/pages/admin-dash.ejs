@@ -123,101 +123,112 @@
         </div>
 
         <div>
-    
+
             <% if (bookData!='undefined' ) { %>
-                <select id="searchOption">
-                    <option selected disabled>Booking status</option>
-                    <option id="pending">pending</option>
-                    <option id="cancelled">cancelled</option>
-                    <option id="completed">completed</option>
-                </select>
-                <button id="searchStatus" onclick="searchStat()">Search</button>
-                
-                <% bookData.forEach(el=> {%>
-                <br>
-                <div style="background-color:beige;padding: 20px;">
-                    <p style="background-color: beige;">
-                    <p><span style="color:orangered;padding-right: 10px;">Qty : </span>
-                        <%= el.qty %>
-                    </p>
-                    <p><span style="color:orangered;padding-right: 10px;">bookingStatus :</span>
-                        <%= el.bookingStatus %>
-                    </p>
-                    <p><span style="color:orangered;padding-right: 10px;">Vendor :</span>
-                        <%= el.vendorID.name %>
-                    </p>
-                    <p><span style="color:orangered;padding-right: 10px;">service :</span>
-                        <%= el.serviceID.name %>
-                    </p>
-                    <p><span style="color:orangered;padding-right: 10px;">Booking Date :</span>
-                        <%= el.bookingDate %>
-                    </p>
-                    <p><span style="color:orangered;padding-right: 10px;">Booking Time :</span>
-                        <%= el.bookingTime %>
-                    </p>
-                    <p><span style="color:orangered;padding-right: 10px;">User :</span>
-                        <%= el.userID.name %>
-                    </p>
-                    <p><span style="color:orangered;padding-right: 10px;">Total :</span>
-                        <%= el.totalPrice %>
-                    </p>
+                <div class="row">
+                    <div style="display: block;" class="col-lg-12">
+                        <select id="searchOption">
+                            <option selected disabled>Booking status</option>
+                            <option id="pending">pending</option>
+                            <option id="cancelled">cancelled</option>
+                            <option id="completed">completed</option>
+                        </select>
+                        <button id="searchStatus" onclick="searchStat()">Search</button>
 
-                    <% if(el.bookingStatus=='cancelled' ) {%>
-                        <p><span style="color:orangered;padding-right: 10px;">Cancelled By :</span>
-                            <%= el.isCanceledBy %>
-                        </p>
-                        <% }%>
-
-                            </p>
-                </div>
-        </div>
-                <% }); } else { } %>
-        </div>
-
-        <div>
-
-            <% if(service!='undefined' || serviceData!='undefined' ){%>
-                <div style="margin: 50px 250px">
-                    <h4 style="display: inline;float: left;">Services</h4>
-                    <button type="button" id="service11" data-toggle="modal" data-target="#serviceModal" class="btn"
-                        style="display: inline;margin-left: 30px;">Add Service</button>
-                    <br><br><br>
-                    <div id="showServ">
-                        <% service.forEach(el=> {%>
-                            <div onclick="showServ(`<%= el._id %>`)" style="display: inline;">
-                                <p style="display: inline-block;background-color:beige;padding-right: 80px;">
-                                    <span style="color: orangered;padding-right: 20px;"></span>
-                                    <%=el.name %>
+                        <% bookData.forEach(el=> {%>
+                            <br>
+                            <div style="background-color:beige;padding: 20px;">
+                                <!-- <p style="background-color: beige;"> -->
+                                <p><span style="color:orangered;padding-right: 10px;">Qty : </span>
+                                    <%= el.qty %>
                                 </p>
+                                <p><span style="color:orangered;padding-right: 10px;">bookingStatus :</span>
+                                    <%= el.bookingStatus %>
+                                </p>
+                                <p><span style="color:orangered;padding-right: 10px;">Vendor :</span>
+                                    <%= el.vendorID.name %>
+                                </p>
+                                <p><span style="color:orangered;padding-right: 10px;">service :</span>
+                                    <%= el.serviceID.name %>
+                                </p>
+                                <p><span style="color:orangered;padding-right: 10px;">Booking Date :</span>
+                                    <%= el.bookingDate %>
+                                </p>
+                                <p><span style="color:orangered;padding-right: 10px;">Booking Time :</span>
+                                    <%= el.bookingTime %>
+                                </p>
+                                <p><span style="color:orangered;padding-right: 10px;">User :</span>
+                                    <%= el.userID.name %>
+                                </p>
+                                <p><span style="color:orangered;padding-right: 10px;">Total :</span>
+                                    <%= el.totalPrice %>
+                                </p>
+
+                                <% if(el.bookingStatus=='cancelled' ) {%>
+                                    <p><span style="color:orangered;padding-right: 10px;">Cancelled By :</span>
+                                        <%= el.isCanceledBy %>
+                                    </p>
+                                    <% }%>
+
                             </div>
 
-                            <% })%>
+
+                            <% }); } else { } %>
                     </div>
                 </div>
-                <% if(serviceData!='undefined' && service!='undefined' ){%>
-                    
-                    <div style="margin: 60px 250px; width: 30%;">
+        </div>
+    </div>
+
+    <div>
+
+        <% if(service!='undefined' || serviceData!='undefined' ){%>
+            <div style="margin: 50px 250px">
+                <h4 style="display: inline;float: left;">Services</h4>
+                <button type="button" id="service11" data-toggle="modal" data-target="#serviceModal" class="btn"
+                    style="display: inline;margin-left: 30px;">Add Service</button>
+                <br><br><br>
+                <div id="showServ">
+                    <% service.forEach(el=> {%>
+                        <div onclick="showServ(`<%= el._id %>`)" style="display: inline;">
+                            <p style="display: inline-block;background-color:beige;padding-right: 80px;">
+                                <span style="color: orangered;padding-right: 20px;"></span>
+                                <%=el.name %>
+                            </p>
+                        </div>
+
+                        <% })%>
+                </div>
+            </div>
+            <% if(serviceData!='undefined' && service!='undefined' ){%>
+
+                <div style="margin: 60px 250px; width: 30%;">
                     <h4 style="display: inline;">Service</h4>
-                    <p style="display: inline;margin-left: 120px;cursor:pointer;" onclick="location.href='/services'">cancel</p>
+                    <p style="display: inline;margin-left: 120px;cursor:pointer;" onclick="location.href='/services'">
+                        cancel</p>
                     <div id="showServ" style="padding: 20px;background-color: #170452;">
 
-                        <span style="color:orange;">Name</span> <input type="text" id="s1" value="<%= serviceData.name %>"
+                        <span style="color:orange;">Name</span> <input type="text" id="s1"
+                            value="<%= serviceData.name %>"
                             style="width:100%;display: inline-block;padding-right: 80px;">
 
                         <br>
-                        <span style="color:orange;">Price</span> <input type="text" id="s2" value="<%= serviceData.price %>"
+                        <span style="color:orange;">Price</span> <input type="text" id="s2"
+                            value="<%= serviceData.price %>"
                             style="width:100%;display: inline-block;padding-right: 80px;">
 
                         <br>
-                        <span style="color:orange;">Description</span> <input type="text" id="s3" value="<%= serviceData.description %>"
+                        <span style="color:orange;">Description</span> <input type="text" id="s3"
+                            value="<%= serviceData.description %>"
                             style="width:100%;display: inline-block;padding-right: 80px;">
 
                         <br>
-                        <span style="color:orange;">service Time </span><input type="text" id="s4" value="<%= serviceData.serviceTime %>"
+                        <span style="color:orange;">service Time </span><input type="text" id="s4"
+                            value="<%= serviceData.serviceTime %>"
                             style="width:100%;display: inline-block;padding-right: 80px;">
 
                         <br>
-                        <span style="color:orange;">Category</span> <input type="text" id="s5" value="<%= serviceData.categoryID.name %>"
+                        <span style="color:orange;">Category</span> <input type="text" id="s5"
+                            value="<%= serviceData.categoryID.name %>"
                             style="width:100%;display: inline-block;padding-right: 80px;" disabled>
 
                         <br><br>
@@ -227,70 +238,99 @@
 
                     </div>
                 </div>
-                    <%} %>
+                <%} %>
 
 
 
-                        <% } else { }%>
-        </div>
+                    <% } else { }%>
+    </div>
 
-        <div>
-            <% if(profile!='undefined') {%>
+    <div>
+        <% if(profile!='undefined' ) {%>
 
-                <div>
-                    <!-- <input type="text" id="searchUser" placeholder="Search Any User Profile (Enter Name)">
+            <div>
+                <!-- <input type="text" id="searchUser" placeholder="Search Any User Profile (Enter Name)">
                     <button onclick="search()"></button> -->
-                </div>
-                    <div id="prof" style="margin: 100px; border: 1px solid black;padding: 10px;width:50%;background-color:#0d0445; color: white">
-                        <h3>User Profile</h3>
-                        <p><span style="color: orange;">Role: </span><%= profile.role %></p>
-                        <hr style="background-color:white">
-                        <span style="color: orange;">Name: </span><input type="text" id="name3" value="<%= profile.name %>" ><br><br>
-                        <span style="color: orange;">Email: </span><input type="text" id="email" value="<%= profile.email %>"><br><br>
-                        <span style="color: orange;">Address: </span><input type="text" id="address" value="<%= profile.address %>"><br><br>
-                        <span style="color: orange;">createdAt: </span><input type="text" id="createdAt" value="<%= profile.createdAt %>" disabled><br><br>
-                        <span style="color: orange;">updatedAt: </span><input type="text" id="updatedAt" value="<%= profile.updatedAt %>" disabled><br><br>
-                        
-                        <button id="updateBtn" onclick="updateProfile(`<%= profile._id %>`)" style="border-radius:5%">Update</button>
-                        <button id="cancelBtn" style="border-radius:5%" onclick="location.href='/admin'">Cancel</button>
-                    </div>
-                
-           <% }%>
-        </div>
+            </div>
+            <div id="prof"
+                style="margin: 100px; border: 1px solid black;padding: 10px;width:50%;background-color:#0d0445; color: white">
+                <h3>User Profile</h3>
+                <p><span style="color: orange;">Role: </span>
+                    <%= profile.role %>
+                </p>
+                <hr style="background-color:white">
+                <span style="color: orange;">Name: </span><input type="text" id="name3"
+                    value="<%= profile.name %>"><br><br>
+                <span style="color: orange;">Email: </span><input type="text" id="email"
+                    value="<%= profile.email %>"><br><br>
+                <span style="color: orange;">Address: </span><input type="text" id="address"
+                    value="<%= profile.address %>"><br><br>
+                <span style="color: orange;">createdAt: </span><input type="text" id="createdAt"
+                    value="<%= profile.createdAt %>" disabled><br><br>
+                <span style="color: orange;">updatedAt: </span><input type="text" id="updatedAt"
+                    value="<%= profile.updatedAt %>" disabled><br><br>
 
-        <div>
-            <% if(allUser!='undefined') {%>
-                <div style="display: block;">
+                <button id="updateBtn" onclick="updateProfile(`<%= profile._id %>`)"
+                    style="border-radius:5%">Update</button>
+                <button id="cancelBtn" style="border-radius:5%" onclick="location.href='/admin'">Cancel</button>
+            </div>
+
+            <% }%>
+    </div>
+
+    <div>
+        <% if(allUser!='undefined' ) {%>
+            <div style="display: block;">
                 <h3>All Users</h3>
-                     <input type="text" id="searchUser" style="width: 93%;" placeholder="Search Any User Profile (Enter Name)">
-                    <button onclick="search()">Search</button> 
-                    <button onclick="searchVen()">Vendors</button> 
-                    <button onclick="searchCus()">Customers</button> 
-                        
-                        <hr style="background-color:white">
-                        <% allUser.forEach(el3 => {
-                            console.log(el3)
-                            %>
-                            <div id="allUsrs" style="border: 1px solid black;padding: 10px;background-color:#0d0445; color: white">
-                        
-                        <span style="color: orange;">Role: </span><br><p><%= el3.role %></p>
-                        <span style="color: orange;">Name: </span><br><p><%= el3.name %></p>
-                        <span style="color: orange;">Email: </span><p><%= el3.email %></p>
-                        <span style="color: orange;">Address: </span><p><%= el3.address %></p>
-                        <span style="color: orange;">createdAt: </span><p><%= el3.createdAt %></p>
-                        <span style="color: orange;">updatedAt: </span><p><%= el3.updatedAt %></p>
+                <input type="text" id="searchUser" style="width: 93%;"
+                    placeholder="Search Any User Profile (Enter Name)">
+                <button onclick="search()">Search</button>
+                <button onclick="searchVen()">Vendors</button>
+                <button onclick="searchCus()">Customers</button>
+
+                <hr style="background-color:white">
+                <% allUser.forEach(el3=> {
+                    console.log(el3)
+                    %>
+                    <div id="allUsrs"
+                        style="border: 1px solid black;padding: 10px;background-color:#0d0445; color: white">
+
+                        <span style="color: orange;">Role: </span><br>
+                        <p>
+                            <%= el3.role %>
+                        </p>
+                        <span style="color: orange;">Name: </span><br>
+                        <p>
+                            <%= el3.name %>
+                        </p>
+                        <span style="color: orange;">Email: </span>
+                        <p>
+                            <%= el3.email %>
+                        </p>
+                        <span style="color: orange;">Address: </span>
+                        <p>
+                            <%= el3.address %>
+                        </p>
+                        <span style="color: orange;">createdAt: </span>
+                        <p>
+                            <%= el3.createdAt %>
+                        </p>
+                        <span style="color: orange;">updatedAt: </span>
+                        <p>
+                            <%= el3.updatedAt %>
+                        </p>
                         <br>
                     </div>
                     <br>
-                
-                        <% })%>
-                    </div>
-                </div>
-        </div>
-           <% }%>
+
+                    <% })%>
+            </div>
+    </div>
+    </div>
+    <% }%>
         </div>
 
-    </div>
+        </div>
 </body>
 
 </html>
